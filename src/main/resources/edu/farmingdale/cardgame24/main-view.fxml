@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
@@ -12,25 +14,42 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <HBox prefHeight="55.0" prefWidth="486.0">
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="486.0">
          <children>
-            <Button mnemonicParsing="false" prefWidth="150.0" text="Find a Solution">
+            <Button fx:id="findSolutionButton" mnemonicParsing="false" onAction="#findSolutionAction" prefWidth="150.0" text="Find a Solution">
                <HBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin></Button>
             <Region prefHeight="37.0" prefWidth="90.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" text="Solution will appear here" textAlignment="CENTER">
+            <Label fx:id="solutionLabel" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" text="Solution will appear here" textAlignment="CENTER">
                <HBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </HBox.margin></Label>
             <Region prefHeight="37.0" prefWidth="90.0" />
-            <Button mnemonicParsing="false" prefWidth="150.0" text="Refresh">
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshAction" prefWidth="150.0" text="Refresh">
                <HBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin>
             </Button>
          </children></HBox>
-      <HBox prefHeight="200.0" prefWidth="486.0" />
-      <HBox prefHeight="55.0" prefWidth="486.0" />
+      <HBox fx:id="cardHbox" alignment="CENTER" prefHeight="155.0" prefWidth="486.0">
+         <children>
+            <ImageView fx:id="card1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <ImageView fx:id="card2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <ImageView fx:id="card3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <Region prefHeight="200.0" prefWidth="200.0" />
+            <ImageView fx:id="card4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+         </children></HBox>
+      <Label text="Label" />
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="486.0">
+         <children>
+            <Label text="Enter an expression: " />
+            <Region prefHeight="51.0" prefWidth="30.0" />
+            <TextField fx:id="expressionTextField" />
+            <Region prefHeight="51.0" prefWidth="30.0" />
+            <Button fx:id="verifyButton" mnemonicParsing="false" onAction="#verifyAction" prefWidth="130.0" text="Verify" />
+         </children></HBox>
    </children>
 </VBox>
