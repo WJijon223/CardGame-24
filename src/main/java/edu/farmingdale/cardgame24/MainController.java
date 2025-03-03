@@ -5,10 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class MainController {
+    private GameData gameData = new GameData();
 
     @FXML
     private ImageView card1;
@@ -47,7 +49,11 @@ public class MainController {
 
     @FXML
     void refreshAction(ActionEvent event) {
-
+        gameData.generateCards();
+        card1.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(0))));
+        card2.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(1))));
+        card3.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(2))));
+        card4.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(3))));
     }
 
     @FXML

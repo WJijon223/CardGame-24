@@ -42,7 +42,7 @@
             <Region prefHeight="200.0" prefWidth="200.0" />
             <ImageView fx:id="card4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
          </children></HBox>
-      <Label text="Label" />
+      <Label />
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="486.0">
          <children>
             <Label text="Enter an expression: " />
