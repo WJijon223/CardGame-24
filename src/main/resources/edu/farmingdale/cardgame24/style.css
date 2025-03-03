@@ -1,0 +1,22 @@
+.root {
+    -fx-background-color: #f1f1f1;
+}
+
+.gameButton {
+    -fx-background-color: #478aa8;
+    -fx-border-color: black;
+}
+
+.gameButton:hover {
+    -fx-text-fill: white;
+}
+
+.solutionLabel {
+    -fx-background-color: white;
+    -fx-border-color: black;
+}
+
+.cardStyle {
+    -fx-border-color: black;
+    -fx-border-radius: 5;
+}

@@ -7,7 +7,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" prefHeight="334.0" prefWidth="526.0" spacing="20.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.farmingdale.cardgame24.MainController">
     <padding>
@@ -16,40 +18,71 @@
    <children>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="486.0">
          <children>
-            <Button fx:id="findSolutionButton" mnemonicParsing="false" onAction="#findSolutionAction" prefWidth="150.0" text="Find a Solution">
-               <HBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </HBox.margin></Button>
-            <Region prefHeight="37.0" prefWidth="90.0" />
-            <Label fx:id="solutionLabel" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" text="Solution will appear here" textAlignment="CENTER">
-               <HBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </HBox.margin></Label>
-            <Region prefHeight="37.0" prefWidth="90.0" />
-            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshAction" prefWidth="150.0" text="Refresh">
+            <Button fx:id="findSolutionButton" mnemonicParsing="false" onAction="#findSolutionAction" prefWidth="150.0" styleClass="gameButton" text="Find a Solution">
                <HBox.margin>
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin>
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
+            <Region prefHeight="37.0" prefWidth="90.0" />
+            <Label fx:id="solutionLabel" alignment="CENTER" contentDisplay="CENTER" prefWidth="200.0" styleClass="solutionLabel" text="Solution will appear here" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Label>
+            <Region prefHeight="37.0" prefWidth="90.0" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshAction" prefWidth="150.0" styleClass="gameButton" text="Refresh">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font>
             </Button>
          </children></HBox>
       <HBox fx:id="cardHbox" alignment="CENTER" prefHeight="155.0" prefWidth="486.0">
          <children>
-            <ImageView fx:id="card1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cardStyle">
+               <children>
+                  <ImageView fx:id="card1" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
             <Region prefHeight="200.0" prefWidth="200.0" />
-            <ImageView fx:id="card2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cardStyle">
+               <children>
+                  <ImageView fx:id="card2" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
             <Region prefHeight="200.0" prefWidth="200.0" />
-            <ImageView fx:id="card3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cardStyle">
+               <children>
+                  <ImageView fx:id="card3" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
             <Region prefHeight="200.0" prefWidth="200.0" />
-            <ImageView fx:id="card4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="cardStyle">
+               <children>
+                  <ImageView fx:id="card4" fitHeight="140.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
          </children></HBox>
-      <Label />
+      <Label fx:id="warningLabel" text="Press refresh to start the game!" textFill="RED" />
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="486.0">
          <children>
-            <Label text="Enter an expression: " />
+            <Label text="Enter an expression: ">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Label>
             <Region prefHeight="51.0" prefWidth="30.0" />
             <TextField fx:id="expressionTextField" />
             <Region prefHeight="51.0" prefWidth="30.0" />
-            <Button fx:id="verifyButton" mnemonicParsing="false" onAction="#verifyAction" prefWidth="130.0" text="Verify" />
+            <Button fx:id="verifyButton" mnemonicParsing="false" onAction="#verifyAction" prefWidth="130.0" styleClass="gameButton" text="Verify">
+               <font>
+                  <Font name="Century Gothic" size="12.0" />
+               </font></Button>
          </children></HBox>
    </children>
 </VBox>

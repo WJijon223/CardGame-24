@@ -43,12 +43,16 @@ public class MainController {
     private Button verifyButton;
 
     @FXML
+    private Label warningLabel;
+
+    @FXML
     void findSolutionAction(ActionEvent event) {
 
     }
 
     @FXML
     void refreshAction(ActionEvent event) {
+        warningLabel.setText("");
         gameData.generateCards();
         card1.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(0))));
         card2.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(1))));
