@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 public class MainController {
-    private GameData gameData = new GameData();
+    private final GameData gameData = new GameData();
 
     @FXML
     private ImageView card1;
@@ -31,13 +31,13 @@ public class MainController {
     private TextField expressionTextField;
 
     @FXML
-    private Button findSolutionButton;
+    private Button hintButton;
 
     @FXML
     private Button refreshButton;
 
     @FXML
-    private Label solutionLabel;
+    private Label titleLabel;
 
     @FXML
     private Button verifyButton;
@@ -46,7 +46,7 @@ public class MainController {
     private Label warningLabel;
 
     @FXML
-    void findSolutionAction(ActionEvent event) {
+    void hintAction(ActionEvent event) {
 
     }
 
