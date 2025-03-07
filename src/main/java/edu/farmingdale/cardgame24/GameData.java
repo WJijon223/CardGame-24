@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class GameData {
     ArrayList<String> cards;
+    ArrayList<Integer> values;
     String solution;
     static String[] cardImagePaths = new String[]{
             "2_of_clubs.png", "3_of_clubs.png", "4_of_clubs.png", "5_of_clubs.png",
@@ -22,11 +23,13 @@ public class GameData {
 
     public GameData() {
         this.cards = new ArrayList<String>();
+        this.values = new ArrayList<Integer>();
         this.solution = "";
     }
 
     //Randomly chooses from the cardImagePaths array and adds the card to the cards arraylist (ensures no duplicates)
     public void generateCards() {
+        this.values.clear();
         this.cards.clear();
         Random rand = new Random();
         for (int i = 0; i < 4; i++) {
@@ -35,6 +38,32 @@ public class GameData {
                 randomIndex = rand.nextInt(52);
             }
             this.cards.add(cardImagePaths[randomIndex]);
+            this.values.add(getValue(cardImagePaths[randomIndex].charAt(0)));
         }
     }
+
+    public int getValue(char character) {
+        return switch (character) {
+            case 'a' -> 1;
+            case '2' -> 2;
+            case '3' -> 3;
+            case '4' -> 4;
+            case '5' -> 5;
+            case '6' -> 6;
+            case '7' -> 7;
+            case '8' -> 8;
+            case '9' -> 9;
+            case '1' -> 10;
+            case 'j' -> 11;
+            case 'q' -> 12;
+            case 'k' -> 13;
+            default -> 0;
+        };
+    }
+
+    public boolean isValidExpression(String expression) {
+        return ((expression.matches("([\\d+]|[*+\\-/() ])+")));
+    }
+    public boolean meetsRequirements(String expression) {}
+    public boolean equalsAnswer(String expression) {}
 }

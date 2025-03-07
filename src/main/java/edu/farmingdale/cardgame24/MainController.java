@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainController {
     private final GameData gameData = new GameData();
@@ -58,11 +61,34 @@ public class MainController {
         card2.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(1))));
         card3.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(2))));
         card4.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(3))));
+        System.out.println(gameData.values);
     }
 
     @FXML
     void verifyAction(ActionEvent event) {
+        String expression = expressionTextField.getText();
 
+        if (!gameData.isValidExpression(expression)) {
+            warningLabel.setText("Invalid expression!");
+        }
+        else if (!gameData.meetsRequirements(expression)) {
+            warningLabel.setText("Must use all cards exactly once!");
+        }
+        else if (!gameData.equalsAnswer(expression)) {
+            warningLabel.setText("Incorrect expression!");
+        }
+        else {
+            warningLabel.setText("Correct!");
+            Timer timer = new Timer();
+
+            timer.schedule(new TimerTask() {
+                public void run() {
+                    warningLabel.setText("");
+                    refreshAction(null);
+                    timer.cancel();
+                }
+            }, 4000);
+        }
     }
 
 }
