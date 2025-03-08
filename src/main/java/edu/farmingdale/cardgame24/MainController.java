@@ -61,19 +61,22 @@ public class MainController {
         card2.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(1))));
         card3.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(2))));
         card4.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(3))));
-        System.out.println(gameData.values);
+        System.out.print(this.gameData.valueOccurences);
     }
 
     @FXML
     void verifyAction(ActionEvent event) {
         String expression = expressionTextField.getText();
 
+        //if expression contains invalid characters
         if (!gameData.isValidExpression(expression)) {
             warningLabel.setText("Invalid expression!");
         }
+        //if user not use each card exactly once
         else if (!gameData.meetsRequirements(expression)) {
             warningLabel.setText("Must use all cards exactly once!");
         }
+        //if expression not equivalent to 24
         else if (!gameData.equalsAnswer(expression)) {
             warningLabel.setText("Incorrect expression!");
         }

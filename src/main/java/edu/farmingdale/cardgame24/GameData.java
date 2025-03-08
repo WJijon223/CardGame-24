@@ -1,10 +1,11 @@
 package edu.farmingdale.cardgame24;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class GameData {
     ArrayList<String> cards;
-    ArrayList<Integer> values;
+    HashMap<Integer, Integer> valueOccurences;
     String solution;
     static String[] cardImagePaths = new String[]{
             "2_of_clubs.png", "3_of_clubs.png", "4_of_clubs.png", "5_of_clubs.png",
@@ -23,13 +24,13 @@ public class GameData {
 
     public GameData() {
         this.cards = new ArrayList<String>();
-        this.values = new ArrayList<Integer>();
+        this.valueOccurences = new HashMap<>();
         this.solution = "";
     }
 
     //Randomly chooses from the cardImagePaths array and adds the card to the cards arraylist (ensures no duplicates)
     public void generateCards() {
-        this.values.clear();
+        this.valueOccurences.clear();
         this.cards.clear();
         Random rand = new Random();
         for (int i = 0; i < 4; i++) {
@@ -38,11 +39,15 @@ public class GameData {
                 randomIndex = rand.nextInt(52);
             }
             this.cards.add(cardImagePaths[randomIndex]);
-            this.values.add(getValue(cardImagePaths[randomIndex].charAt(0)));
+            int value = getValue(cardImagePaths[randomIndex].charAt(0));
+            if (!valueOccurences.containsKey(value)) {
+                valueOccurences.put(value, 0);
+            }
+            valueOccurences.put(value, valueOccurences.get(value) + 1);
         }
     }
 
-    public int getValue(char character) {
+    private int getValue(char character) {
         return switch (character) {
             case 'a' -> 1;
             case '2' -> 2;
@@ -64,6 +69,38 @@ public class GameData {
     public boolean isValidExpression(String expression) {
         return ((expression.matches("([\\d+]|[*+\\-/() ])+")));
     }
-    public boolean meetsRequirements(String expression) {}
-    public boolean equalsAnswer(String expression) {}
-}
+    public boolean meetsRequirements(String expression) {
+        int numCount = 0;
+        int loopIndex = 0;
+        HashMap<Integer,Integer> inputOccurences = new HashMap<>();
+
+        //TODO: fix the double digit integer issue
+        while (loopIndex < expression.length() - 1) {
+            if (numCount > 4)
+                return false;
+
+            char char1 = expression.charAt(loopIndex);
+            char char2 = expression.charAt(loopIndex + 1);
+
+            if (Character.isDigit(char1)) {
+                String numString = "" + char1;
+                 if (Character.isDigit(char2)) {
+                     numString = numString + char2;
+                     loopIndex++;
+                 }
+                 int numInt = Integer.parseInt(numString);
+                 if (!this.valueOccurences.containsKey(numInt)) {
+                     return false;
+                 }
+
+                 inputOccurences.putIfAbsent(numInt, 0);
+                 inputOccurences.put(numInt, inputOccurences.get(numInt) + 1);
+                 numCount++;
+            }
+            loopIndex++;
+        }
+            return (this.valueOccurences.equals(inputOccurences));
+    }
+
+        public boolean equalsAnswer(String expression) {}
+    }
