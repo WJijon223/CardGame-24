@@ -78,9 +78,11 @@ public class MainController {
         }
         //if expression not equivalent to 24
         else if (!gameData.equalsAnswer(expression)) {
-            warningLabel.setText("Incorrect expression!");
+            warningLabel.setText("Expression must equal 24!");
         }
         else {
+            warningLabel.setStyle("-fx-text-fill: green;");
+            expressionTextField.setStyle("-fx-background-color: #b0ffb0;");
             warningLabel.setText("Correct!");
             Timer timer = new Timer();
 
@@ -88,8 +90,11 @@ public class MainController {
                 public void run() {
                     // Ensure this runs on the JavaFX Application Thread
                     Platform.runLater(() -> {
+                        expressionTextField.setStyle("-fx-background-color: white;");
+                        warningLabel.setStyle("-fx-text-fill: red;");
                         warningLabel.setText("");
                         refreshAction(new ActionEvent());
+                        expressionTextField.setText("");
                     });
                     timer.cancel();
                 }
