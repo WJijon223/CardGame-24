@@ -1,5 +1,6 @@
 package edu.farmingdale.cardgame24;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -80,15 +81,16 @@ public class MainController {
             warningLabel.setText("Incorrect expression!");
         }
         else {
-
-            //TODO: Check the timer error
             warningLabel.setText("Correct!");
             Timer timer = new Timer();
 
             timer.schedule(new TimerTask() {
                 public void run() {
-                    warningLabel.setText("");
-                    refreshAction(null);
+                    // Ensure this runs on the JavaFX Application Thread
+                    Platform.runLater(() -> {
+                        warningLabel.setText("");
+                        refreshAction(new ActionEvent());
+                    });
                     timer.cancel();
                 }
             }, 4000);
