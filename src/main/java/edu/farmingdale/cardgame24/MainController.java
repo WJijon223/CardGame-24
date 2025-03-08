@@ -61,7 +61,6 @@ public class MainController {
         card2.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(1))));
         card3.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(2))));
         card4.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(3))));
-        System.out.print(this.gameData.valueOccurences);
     }
 
     @FXML

@@ -75,32 +75,31 @@ public class GameData {
         HashMap<Integer,Integer> inputOccurences = new HashMap<>();
 
         //TODO: fix the double digit integer issue
-        while (loopIndex < expression.length() - 1) {
+        while (loopIndex < expression.length()) {
             if (numCount > 4)
                 return false;
 
-            char char1 = expression.charAt(loopIndex);
-            char char2 = expression.charAt(loopIndex + 1);
+            char character1 = expression.charAt(loopIndex);
+            if (Character.isDigit(character1)) {
+                String numString = "" + character1;
 
-            if (Character.isDigit(char1)) {
-                String numString = "" + char1;
-                 if (Character.isDigit(char2)) {
-                     numString = numString + char2;
-                     loopIndex++;
-                 }
-                 int numInt = Integer.parseInt(numString);
-                 if (!this.valueOccurences.containsKey(numInt)) {
-                     return false;
-                 }
-
-                 inputOccurences.putIfAbsent(numInt, 0);
-                 inputOccurences.put(numInt, inputOccurences.get(numInt) + 1);
-                 numCount++;
+                if (loopIndex + 1 < expression.length() && Character.isDigit(expression.charAt(loopIndex + 1))) {
+                    numString = numString + expression.charAt(loopIndex + 1);
+                    loopIndex++;
+                }
+                int numInt = Integer.parseInt(numString);
+                inputOccurences.putIfAbsent(numInt, 0);
+                inputOccurences.put(numInt, inputOccurences.get(numInt) + 1);
+                numCount++;
             }
             loopIndex++;
         }
-            return (this.valueOccurences.equals(inputOccurences));
+        System.out.println(this.valueOccurences);
+        System.out.println(inputOccurences);
+        return (this.valueOccurences.equals(inputOccurences));
     }
 
-        public boolean equalsAnswer(String expression) {}
+    public boolean equalsAnswer(String expression) {
+        return false;
     }
+}
