@@ -1,4 +1,7 @@
 package edu.farmingdale.cardgame24;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -74,7 +77,6 @@ public class GameData {
         int loopIndex = 0;
         HashMap<Integer,Integer> inputOccurences = new HashMap<>();
 
-        //TODO: fix the double digit integer issue
         while (loopIndex < expression.length()) {
             if (numCount > 4)
                 return false;
@@ -100,6 +102,8 @@ public class GameData {
     }
 
     public boolean equalsAnswer(String expression) {
-        return false;
+        Expression exp = new ExpressionBuilder(expression).build();
+        double result = exp.evaluate();
+        return (result == 24.0);
     }
 }

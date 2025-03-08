@@ -80,6 +80,8 @@ public class MainController {
             warningLabel.setText("Incorrect expression!");
         }
         else {
+
+            //TODO: Check the timer error
             warningLabel.setText("Correct!");
             Timer timer = new Timer();
 
