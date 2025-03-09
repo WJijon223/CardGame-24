@@ -24,7 +24,7 @@ public class ChatGPT {
         String msg = "I am playing a game where I am given four numbers " +
                 "and I have to write an expression using ONLY each number " +
                 "exactly once and must use only addition, subtraction, " +
-                "multiplication, and addition. Give me a hint that is " +
+                "multiplication, and addition to evaluate to 24. Give me a hint that is " +
                 "less than 10 words don't say anything else. Here is the " +
                 "array of numbers I must use (MUST use the numbers in the hint):" +
                 integerSet.toString();
