@@ -1,9 +1,9 @@
 .root {
-    -fx-background-color: #fefbfb;
+    -fx-background-color: #ffffff;
 }
 
 .gameButton {
-    -fx-background-color: #478aa8;
+    -fx-background-color: #569fc4;
     -fx-border-color: black;
 }
 
@@ -19,4 +19,9 @@
 .cardStyle {
     -fx-border-color: black;
     -fx-border-radius: 5;
+}
+
+.inputTextField {
+    -fx-border-color: black;
+    -fx-border-radius: 1.5;
 }

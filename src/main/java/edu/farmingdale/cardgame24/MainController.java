@@ -57,6 +57,7 @@ public class MainController {
     @FXML
     void refreshAction(ActionEvent event) {
         warningLabel.setText("");
+        expressionTextField.setText("");
         gameData.generateCards();
         card1.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(0))));
         card2.setImage(new Image(getClass().getResourceAsStream("images/" + gameData.cards.get(1))));
@@ -74,7 +75,7 @@ public class MainController {
         }
         //if user not use each card exactly once
         else if (!gameData.meetsRequirements(expression)) {
-            warningLabel.setText("Must use all cards exactly once!");
+            warningLabel.setText("Must only use each card exactly once!");
         }
         //if expression not equivalent to 24
         else if (!gameData.equalsAnswer(expression)) {

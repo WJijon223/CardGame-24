@@ -23,7 +23,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin>
                <font>
-                  <Font name="Century Gothic" size="12.0" />
+                  <Font name="Futura-Medium" size="12.0" />
                </font></Button>
             <Region prefHeight="37.0" prefWidth="90.0" />
             <Label fx:id="titleLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="246.0" styleClass="solutionLabel" text="24 Card Game" textAlignment="CENTER">
@@ -31,7 +31,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </HBox.margin>
                <font>
-                  <Font name="Century Gothic" size="22.0" />
+                  <Font name="Futura-Medium" size="22.0" />
                </font></Label>
             <Region prefHeight="37.0" prefWidth="90.0" />
             <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#refreshAction" prefWidth="150.0" styleClass="gameButton" text="Refresh">
@@ -39,7 +39,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </HBox.margin>
                <font>
-                  <Font name="Century Gothic" size="12.0" />
+                  <Font name="Futura-Medium" size="12.0" />
                </font>
             </Button>
          </children></HBox>
@@ -69,19 +69,25 @@
                </children>
             </StackPane>
          </children></HBox>
-      <Label fx:id="warningLabel" text="Press refresh to start the game!" textFill="RED" />
+      <Label fx:id="warningLabel" text="Press refresh to start the game!" textFill="RED">
+         <font>
+            <Font name="Futura-Medium" size="12.0" />
+         </font></Label>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="486.0">
          <children>
             <Label text="Enter an expression: ">
                <font>
-                  <Font name="Century Gothic" size="12.0" />
+                  <Font name="Futura-Medium" size="12.0" />
                </font></Label>
             <Region prefHeight="51.0" prefWidth="30.0" />
-            <TextField fx:id="expressionTextField" />
+            <TextField fx:id="expressionTextField" styleClass="inputTextField">
+               <font>
+                  <Font name="Futura-Medium" size="12.0" />
+               </font></TextField>
             <Region prefHeight="51.0" prefWidth="30.0" />
             <Button fx:id="verifyButton" mnemonicParsing="false" onAction="#verifyAction" prefWidth="130.0" styleClass="gameButton" text="Verify">
                <font>
-                  <Font name="Century Gothic" size="12.0" />
+                  <Font name="Futura-Medium" size="12.0" />
                </font></Button>
          </children></HBox>
    </children>
