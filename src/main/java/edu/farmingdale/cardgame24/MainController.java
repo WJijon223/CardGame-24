@@ -51,7 +51,7 @@ public class MainController {
 
     @FXML
     void hintAction(ActionEvent event) {
-
+        warningLabel.setText(gameData.getHint(gameData.valueOccurences.keySet()));
     }
 
     @FXML

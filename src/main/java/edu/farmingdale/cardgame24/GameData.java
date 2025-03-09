@@ -5,11 +5,14 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.Set;
+
+import static edu.farmingdale.cardgame24.ChatGPT.chatGPT;
 
 public class GameData {
     ArrayList<String> cards;
     HashMap<Integer, Integer> valueOccurences;
-    String solution;
+    int hintsLeft;
     static String[] cardImagePaths = new String[]{
             "2_of_clubs.png", "3_of_clubs.png", "4_of_clubs.png", "5_of_clubs.png",
             "6_of_clubs.png", "7_of_clubs.png", "8_of_clubs.png", "9_of_clubs.png", "10_of_clubs.png", "jack_of_clubs.png",
@@ -28,11 +31,12 @@ public class GameData {
     public GameData() {
         this.cards = new ArrayList<String>();
         this.valueOccurences = new HashMap<>();
-        this.solution = "";
+        this.hintsLeft = 3;
     }
 
     //Randomly chooses from the cardImagePaths array and adds the card to the cards arraylist (ensures no duplicates)
     public void generateCards() {
+        this.hintsLeft = 3;
         this.valueOccurences.clear();
         this.cards.clear();
         Random rand = new Random();
@@ -105,5 +109,16 @@ public class GameData {
         Expression exp = new ExpressionBuilder(expression).build();
         double result = exp.evaluate();
         return (result == 24.0);
+    }
+
+    public String getHint(Set<Integer> integerSet) {
+        String result = chatGPT(integerSet);
+        if (this.hintsLeft == 0) {
+            return "No more hints left!";
+        }
+        if (!result.equals("Error: Missing API key!")) {
+            this.hintsLeft -= 1;
+        }
+        return result + " (Hints left: " + this.hintsLeft + ")";
     }
 }
