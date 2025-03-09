@@ -81,9 +81,11 @@ public class MainController {
             warningLabel.setText("Expression must equal 24!");
         }
         else {
+            disableButtons(true);
             warningLabel.setStyle("-fx-text-fill: green;");
             expressionTextField.setStyle("-fx-background-color: #b0ffb0;");
             warningLabel.setText("Correct!");
+
             Timer timer = new Timer();
 
             timer.schedule(new TimerTask() {
@@ -94,12 +96,20 @@ public class MainController {
                         warningLabel.setStyle("-fx-text-fill: red;");
                         warningLabel.setText("");
                         refreshAction(new ActionEvent());
+                        disableButtons(false);
                         expressionTextField.setText("");
                     });
                     timer.cancel();
                 }
             }, 4000);
         }
+    }
+
+    void disableButtons(boolean value) {
+        hintButton.setDisable(value);
+        refreshButton.setDisable(value);
+        verifyButton.setDisable(value);
+        expressionTextField.setDisable(value);
     }
 
 }
