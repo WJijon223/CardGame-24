@@ -6,15 +6,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Set;
 
 public class ChatGPT {
-
-    public static void main(String[] args) {
-//        System.out.println(chatGPT("[4,4,8,12]"));
-        // Prints out a response to the question.
-    }
 
     public static String chatGPT(Set<Integer> integerSet) {
         String url = "https://api.openai.com/v1/chat/completions";
