@@ -12,8 +12,8 @@ public class ChatGPT {
 
     public static String chatGPT(Set<Integer> integerSet) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = System.getenv("OPENAI_API_KEY"); // API key goes here
-        String model = "gpt-3.5-turbo"; // current model of chatgpt api
+        String apiKey = System.getenv("OPENAI_API_KEY");
+        String model = "gpt-3.5-turbo";
 
         String msg = "I am playing a game where I am given four numbers " +
                 "and I have to write an expression using ONLY each number " +
@@ -31,7 +31,6 @@ public class ChatGPT {
             con.setRequestProperty("Authorization", "Bearer " + apiKey);
             con.setRequestProperty("Content-Type", "application/json");
 
-            // Build the request body
             String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + msg + "\"}]}";
             con.setDoOutput(true);
             OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream());
@@ -39,7 +38,6 @@ public class ChatGPT {
             writer.flush();
             writer.close();
 
-            // Get the response
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
@@ -48,7 +46,6 @@ public class ChatGPT {
             }
             in.close();
 
-            // returns the extracted contents of the response.
             return extractContentFromResponse(response.toString());
 
         } catch (IOException e) {
@@ -56,10 +53,9 @@ public class ChatGPT {
         }
     }
 
-    // This method extracts the response expected from chatgpt and returns it.
     public static String extractContentFromResponse(String response) {
-        int startMarker = response.indexOf("content")+11; // Marker for where the content starts.
-        int endMarker = response.indexOf("\"", startMarker); // Marker for where the content ends.
-        return response.substring(startMarker, endMarker); // Returns the substring containing only the response.
+        int startMarker = response.indexOf("content")+11;
+        int endMarker = response.indexOf("\"", startMarker);
+        return response.substring(startMarker, endMarker);
     }
 }
