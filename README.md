@@ -7,7 +7,7 @@ Welcome to 24 Card Game! This is an interactive math game that was built using J
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Reference](#api-reference)
-- [Tech](#tech)
+- [Tech Stack](#tech-stack)
 
 ## Introduction & Rules
 The game begins by drawing 4 cards from a standard 52-card deck. Your goal is to create a mathematical expression that evaluates to 24 using each card’s numerical value exactly once.  
