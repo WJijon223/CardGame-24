@@ -6,6 +6,7 @@ Welcome to 24 Card Game! This is an interactive math game that was built using J
 - [Introduction & Rules](#introduction-&-rules)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Live Demo](#live-demo)
 - [API Reference](#api-reference)
 - [Tech Stack](#tech-stack)
 
@@ -93,6 +94,10 @@ Your application should now be up and running.
 - If correct, a confirmation message will appear, and the game will reset automatically after 5 seconds.  
 - Click the **Hint** button to use a hint.  
 - Click the **Refresh** button to start a new game with a different set of cards.  
+
+## Live Demo
+[![24 Card Game](https://img.youtube.com/vi/0gIWf2QQ6rM/0.jpg)](https://www.youtube.com/watch?v=0gIWf2QQ6rM)
+
 
 ## API Reference
 
