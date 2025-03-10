@@ -86,7 +86,7 @@ Make sure to set the `OPENAI_API_KEY` environment variable with your OpenAI API 
 Your application should now be up and running.
 
 ## Usage
-[Reference Image](src/main/resources/edu/farmingdale/cardgame24/images/cardgame24.PNG)
+![Reference Image](src/main/resources/edu/farmingdale/cardgame24/images/cardgame24.PNG)
 - Click the **Refresh** button to start a new game.  
 - Enter your mathematical expression in the text field at the bottom of the window.  
 - Click the **Verify** button to check your answer.  
