@@ -97,7 +97,7 @@ Your application should now be up and running.
 
 ## Live Demo
 [![24 Card Game](https://img.youtube.com/vi/0gIWf2QQ6rM/0.jpg)](https://www.youtube.com/watch?v=0gIWf2QQ6rM)
-
+- **Click on the image above to watch a live demo of the game.**
 
 ## API Reference
 
